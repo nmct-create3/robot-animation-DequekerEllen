@@ -45,6 +45,12 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 }
 
 /*
@@ -134,15 +140,10 @@ body {
     Component: Robot
 */
 
-.c-robot-all {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .c-robot {
   max-width: 300px;
+  margin: 0 auto;
+  display: block;
   fill: var(--global-color-front);
   --c-robot-animation-duration: 0.75s;
   --c-robot-animation-timing-function: ease-in-out;
@@ -156,21 +157,21 @@ body {
   /* fill: transparent; */
 }
 
-#Shadow {
+.c-robot--css-anim #Shadow {
   animation-name: shadowPulse;
-  animation-duration: 0.75s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
   transform-origin: 50% 100%;
 }
 
-#Robot {
+.c-robot--css-anim #Robot {
   animation-name: robotHover;
-  animation-duration: 0.75s;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  animation-duration: var(--c-robot-animation-duration);
+  animation-timing-function: var(--c-robot-animation-timing-function);
+  animation-iteration-count: var(--c-robot-animation-iteration-count);
+  animation-direction: var(--c-robot-animation-direction);
   transform-origin: 50% 100%;
 }
 
@@ -192,6 +193,26 @@ body {
 /*
     Component: Controls
 */
+
+.c-controls__list {
+  display: flex;
+}
+
+.c-controls__radio {
+  display: none;
+}
+
+.c-controls__button {
+  width: 10px;
+  height: 5px;
+  border-radius: 50px;
+  padding: 5px 10px;
+  margin: 20px;
+}
+
+.c-controls__list li label:focus {
+  background-color: rgba(0, 0, 0, 0.219);
+}
 
 /*------------------------------------*\
 #UTILITIES
